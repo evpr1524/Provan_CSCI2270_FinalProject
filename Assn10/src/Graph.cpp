@@ -216,7 +216,6 @@ void Graph::shortestPath(string startingCity, string endingCity){
             cout <<"Final City: " << a->name << " Distance: " << a->distance << endl;
             return;
         }
-
         for(int x=0; x<a->adj.size(); ++x){
             if(!a->adj[x].v->visited){
                 a->adj[x].v->visited=true;
