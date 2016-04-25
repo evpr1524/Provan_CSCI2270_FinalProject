@@ -3,7 +3,9 @@
 #include <sstream>
 #include <fstream>
 #include <stdlib.h>
+#include <limits.h>
 #include <queue>
+#include <vector>
 using namespace std;
 
 struct queueDistrict{
@@ -227,6 +229,84 @@ void Graph::shortestPath(string startingCity, string endingCity){
     }
 }
 
+void Graph::shortestDistance(string startingCity, string endingCity){
+
+    for(int z=0; z< vertices.size(); ++z){
+        vertices[z].visited=false;
+    }
+
+    vertex *startcity;
+    vertex *endcity;
+    bool citystartfound=false;
+    bool cityendfound=false;
+
+    for(int i=0; i<vertices.size(); ++i){
+        if(startingCity == vertices[i].name){
+            startcity=&vertices[i];
+            citystartfound=true;
+        }
+        if(endingCity == vertices[i].name){
+            endcity=&vertices[i];
+            cityendfound=true;
+        }
+    }
+    if(citystartfound==false || cityendfound ==false){
+        cout << "One or more cities doesn't exist" << endl;
+        return;
+    }
+    if(startcity->ID==-1 || endcity->ID==-1){
+        cout << "Please identify the districts before checking distances" << endl;
+    }
+    if(startcity->ID != endcity->ID){
+        cout << "No safe path between cities" << endl;
+    }
+
+    startcity->visited=true;
+    startcity->distance=0;
+    vector<vertex*> solved;
+    solved.push_back(startcity);
+    vertex *prev;
+
+    while(!endcity->visited){
+        int minDistance = INT_MAX;
+        vertex *solvedV=NULL;
+        for(int x=0; x<solved.size(); ++x){
+            vertex *s=solved[x];
+            for(int y=0; y<s->adj.size(); ++y){
+                if(!s->adj[y].v->visited){
+                    s->adj[y].v->distance = s->distance + s->adj[y].weight;
+                    if(s->adj[y].v->distance < minDistance){
+                        solvedV=s->adj[y].v;
+                        minDistance = s->adj[y].v->distance;
+                        s->adj[y].v->previous=s;
+                        prev=s;
+                    }
+                }
+            }
+        }
+        solvedV->distance=minDistance;
+        solvedV->previous=prev;
+        solvedV->visited=true;
+        solved.push_back(solvedV);
+    }
+
+    vertex *walker=endcity;
+    vector <vertex*> thecout;
+    while(walker != startcity->previous){
+        thecout.push_back(walker);
+        walker=walker->previous;
+    }
+
+    cout << "Shortest Path" << endl;
+    cout << thecout[thecout.size()-1]->name;
+    for(int h=thecout.size()-2; h>-1; h--){
+        cout << " - " << thecout[h]->name;
+    }
+    cout << "\nMinimum Distance: " << endcity->distance << endl;
+
+
+
+}
 
 
 

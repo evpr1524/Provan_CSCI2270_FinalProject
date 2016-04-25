@@ -27,8 +27,9 @@ int main()
         cout << "1. Print verticies of colonies" << endl;
         cout << "2. Find districts" << endl;
         cout << "3. Find shortest path (number of cities)" << endl;
-        cout << "5. Find shortest distance between two cities" << endl;
-        cout << "6. View " << endl;
+        cout << "4. Find shortest distance between two cities" << endl;
+        cout << "5. " << endl;
+        cout << "6. " << endl;
         cout << "7." << endl;
         cout << "8." << endl;
         cout << "9." << endl;
@@ -55,19 +56,24 @@ int main()
             getline(cin, endingCity);
             g.shortestPath(startingCity, endingCity);
             break;
-        case 4:
+        case 4:     //shortest distance
+            cout << "Enter a starting city:" << endl;
+            getline(cin, startingCity);
+            cout << "Enter an ending city:" << endl;
+            getline(cin, endingCity);
+            g.shortestDistance(startingCity, endingCity);
             break;
-        case 5:
+        case 5:     //
             break;
-        case 6:
+        case 6:     //
             break;
-        case 7:
+        case 7:     //
             break;
-        case 8:
+        case 8:     //
             break;
-        case 9:
+        case 9:     //
             break;
-        case 10:
+        case 10:    //
             break;
         case 11:
             cout << "Goodbye!" << endl;

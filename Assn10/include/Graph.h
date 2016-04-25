@@ -18,6 +18,7 @@ struct vertex{
     bool visited;
     int distance;
     std::vector<adjVertex> adj;
+    vertex *previous;
 };
 
 struct queueVertex{
@@ -37,6 +38,7 @@ class Graph
         void assignDistricts();
         void BFTraversalLabel(std::string startingCity, int distID);
         void shortestPath(std::string startingCity,std::string endingCity);
+        void shortestDistance(std::string startingCity, std::string endingCity);
         vertex * findVertex(std::string name);
         void printVertices();
         void buildgraph(char *filenamein);
