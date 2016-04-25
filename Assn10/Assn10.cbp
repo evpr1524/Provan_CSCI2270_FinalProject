@@ -35,8 +35,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Graph.h" />
+		<Unit filename="include/Resources1.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Graph.cpp" />
+		<Unit filename="src/Resources1.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
