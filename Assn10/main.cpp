@@ -22,17 +22,21 @@ int main()
 
     g.buildgraph(filenamein);
 
+    cout << "Welcome to the Post-Apocalyptic Transit and Resource Monitor Network (PATRN)" << endl;
+    cout << "\nThis application will allow you to keep track of your resources and connected cities in order to aid you in surviving the Apocalypse. \n" << endl;
+    cout << "The application is now building the network from the cities that are most likely to have survived the apocalypse \n" << endl;
+
     while(choice!=420){
         cout << "======Main Menu======" << endl;
         cout << "1. Print verticies of colonies" << endl;
         cout << "2. Find districts" << endl;
         cout << "3. Find shortest path (number of cities)" << endl;
         cout << "4. Find shortest distance between two cities" << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "7." << endl;
-        cout << "8." << endl;
-        cout << "9." << endl;
+        cout << "5. Display current city" << endl;
+        cout << "6. Move to a connecting city" << endl;
+        cout << "7. Display resources" << endl;
+        cout << "8. Add a new type of resource to the register" << endl;
+        cout << "9. Update resource register" << endl; // will have 2 public methods, add and subtract
         cout << "10." << endl;
         cout << "11. Close Application" << endl;
 
