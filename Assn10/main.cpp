@@ -24,10 +24,16 @@ int main()
 
     while(choice!=420){
         cout << "======Main Menu======" << endl;
-        cout << "1. Print vertices" << endl;
+        cout << "1. Print verticies of colonies" << endl;
         cout << "2. Find districts" << endl;
-        cout << "3. Find shortest path" << endl;
-        cout << "4. Quit" << endl;
+        cout << "3. Find shortest path (number of cities)" << endl;
+        cout << "5. Find shortest distance between two cities" << endl;
+        cout << "6. View " << endl;
+        cout << "7." << endl;
+        cout << "8." << endl;
+        cout << "9." << endl;
+        cout << "10." << endl;
+        cout << "11. Close Application" << endl;
 
         getline(cin, mychoice);
         stringstream(mychoice) >> choice;
@@ -49,7 +55,21 @@ int main()
             getline(cin, endingCity);
             g.shortestPath(startingCity, endingCity);
             break;
-        case 4: //delete a moive
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+        case 10:
+            break;
+        case 11:
             cout << "Goodbye!" << endl;
             return 0;
 
