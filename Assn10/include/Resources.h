@@ -23,6 +23,8 @@ class Resources
         Resources();
         virtual ~Resources();
         void addpartymember(std::string username, int userage);
+        void removepartymember(std::string username);
+        void displayallmembers();
     protected:
     private:
         std::vector<person*> partylist;

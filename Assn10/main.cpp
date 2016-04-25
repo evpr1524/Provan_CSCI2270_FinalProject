@@ -54,7 +54,8 @@ int main()
         cout << "11. Update connections between two cities" << endl;
         cout << "12. Add member to party" << endl;
         cout << "13. Remove member from party" << endl;
-        cout << "14. Close Application" << endl;
+        cout << "14. Display current party" << endl;
+        cout << "15. Close Application" << endl;
 
         getline(cin, mychoice);
         stringstream(mychoice) >> choice;
@@ -97,14 +98,25 @@ int main()
             break;
         case 11:    //
             break;
-        case 12:    //
+        case 12:    //add a party member
+            cout << "Please enter the name of the party member to add: ";
+            getline(cin, username);
+            cout << "Please enter the age of the party member to add:" << endl;
+            getline(cin, useragestr);
+            stringstream(useragestr) >> userage;
+            r1.addpartymember(username, userage);
             break;
-        case 13:    //
+        case 13:    //remove a party member
+            cout << "Please enter the name of the party member to remove: ";
+            getline(cin, username);
+            r1.removepartymember(username);
             break;
-        case 14:
+        case 14:    //display all the users
+            r1.displayallmembers();
+            break;
+        case 15:
             cout << "Goodbye!" << endl;
             return 0;
-
         }
     }
 }
