@@ -308,5 +308,47 @@ void Graph::shortestDistance(string startingCity, string endingCity){
 
 }
 
+void Graph::printnearestcities(std::string currentcity){
 
+    vertex tmp;
+    int i=0;
+    tmp=vertices[i];
 
+    while(tmp.name!=currentcity){
+        tmp=vertices[i];
+        ++i;
+    }
+    cout << tmp.adj[0].v->name;
+    for(int j=1; j<tmp.adj.size()-1; ++j){
+        cout << ", " << tmp.adj[j].v->name;
+    }
+    cout << ", and " << tmp.adj.back().v->name << "." << endl;
+
+}
+
+std::string Graph::movecity(std::string currentcity, std::string newcity){
+
+    vertex *tmp=new vertex;
+    int i=0;
+    tmp=&vertices[i];
+
+    while(tmp->name!=currentcity){
+        tmp=&vertices[i];
+        ++i;
+    }
+
+    vector<vertex*> adjcities;
+
+    for(int j=0; j<tmp->adj.size(); ++j){
+            adjcities.push_back(tmp->adj[j].v);
+    }
+
+    for(int k=0; k<adjcities.size(); ++k){
+        if(adjcities[k]->name==newcity){
+            return newcity;
+        }
+    }
+
+    return "NotACity";
+
+}

@@ -19,7 +19,9 @@ int main()
     string endingCity;
     string username;
     string useragestr;
+    string nearestcitymain;
     int userage=0;
+    string moveto;
 
     Graph g;
     Resources r1;
@@ -47,11 +49,11 @@ int main()
         cout << "4. Find shortest distance between two cities" << endl;
         cout << "5. Display current city" << endl;
         cout << "6. Move to a connecting city" << endl;
-        cout << "7. Display resources" << endl;
-        cout << "8. Add a new type of resource to the register" << endl;
-        cout << "9. Update resource register" << endl; // will have 2 public methods, add and subtract
-        cout << "10. Add a city to the network" << endl;
-        cout << "11. Update connections between two cities" << endl;
+        cout << "7. Add a city to the network" << endl;
+        cout << "8. Update connections between two cities" << endl;
+        cout << "9. Display resources" << endl;
+        cout << "10. Add a new type of resource to the register" << endl;
+        cout << "11. Update resource register" << endl; // will have 2 public methods, add and subtract
         cout << "12. Add member to party" << endl;
         cout << "13. Remove member from party" << endl;
         cout << "14. Display current party" << endl;
@@ -84,19 +86,32 @@ int main()
             getline(cin, endingCity);
             g.shortestDistance(startingCity, endingCity);
             break;
-        case 5:     //
+        case 5:     //display current city
+            nearestcitymain=r1.printcurrentcity();
+            g.printnearestcities(nearestcitymain);
             break;
-        case 6:     //
+        case 6:     //move to a conecting city
+            nearestcitymain=r1.printcurrentcity();
+            g.printnearestcities(nearestcitymain);
+            cout << "Please enter the name of the city you wish to move to" << endl;
+            getline(cin, startingCity);
+            moveto = g.movecity(nearestcitymain, startingCity);
+            //cout << "moving to " << moveto << endl;
+                if(moveto == "NotACity"){
+                    cout << "You can not travel to " << startingCity << " from your current city" << endl;
+                }else{
+                    r1.move1city(moveto);
+                }
             break;
-        case 7:     //
+        case 7:     //Add a city to the network
             break;
-        case 8:     //
+        case 8:     //Update connections between two cities
             break;
-        case 9:     //
+        case 9:     //Display Resources
             break;
-        case 10:    //
+        case 10:    //Add a new type of resource to the register
             break;
-        case 11:    //
+        case 11:    //Update resource to the register
             break;
         case 12:    //add a party member
             cout << "Please enter the name of the party member to add: ";

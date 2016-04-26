@@ -42,6 +42,8 @@ class Graph
         vertex * findVertex(std::string name);
         void printVertices();
         void buildgraph(char *filenamein);
+        void printnearestcities(std::string nearestcity);
+        std::string movecity(std::string currentcity, std::string startingCity);
 
     protected:
     private:
