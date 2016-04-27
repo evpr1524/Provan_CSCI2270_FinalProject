@@ -74,6 +74,15 @@ void Resources::printinventory(){
             cout << "\t" << i1.armory[i].type << " " << i1.armory[i].name << " " << i1.armory[i].number << endl;
         }
     }
+    if(i1.special.empty()){
+        cout << "You have no special items in your inventory." << endl;
+    }else{
+        cout << "Your current special Items are:" << endl;
+        for(int j=0; j<i1.special.size(); ++j){
+            cout << "\t Name: " << i1.special[j].name << ", Quantity: " << i1.special[j].quantity << endl;
+            cout << "\t\t" << i1.special[j].description << endl;
+        }
+    }
 
 }
 
@@ -127,5 +136,30 @@ void Resources::addresource(){
         i1.armory.push_back(addtoinventory);
         break;
     }
+
+}
+
+void Resources::addspecialItem(){
+
+    string myitemname;
+    string myitemdescription;
+    string myitemquantitystr;
+    int quantity=0;
+    specialItem sp1;
+
+    cout << "Please enter a name for the item you wish to record: ";
+    getline(cin, myitemname);
+    cout << "Please enter a description for the item you wish to record:";
+    getline(cin, myitemdescription);
+    cout << "Please enter a quantity for the number of " << myitemname << "s you have:";
+    getline(cin, myitemquantitystr);
+    stringstream(myitemquantitystr) << quantity;
+
+    sp1.description=myitemdescription;
+    sp1.name=myitemname;
+    sp1.quantity=quantity;
+    i1.special.push_back(sp1);
+
+
 
 }

@@ -14,11 +14,19 @@ struct weapon{
     int number;
 };
 
+struct specialItem{
+    std::string name;
+    std::string description;
+    int quantity;
+
+};
+
 struct inventory{
     int food=0;
     int water=0;
     std::vector<weapon> armory;
     std::vector<person> party;
+    std::vector<specialItem> special;
 };
 
 struct info{
@@ -39,6 +47,7 @@ class Resources
         void move1city(std::string moveto);
         void printinventory();
         void addresource();
+        void addspecialItem();
     protected:
     private:
         std::vector<person*> partylist;

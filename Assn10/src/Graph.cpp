@@ -100,7 +100,7 @@ void Graph::addVertex(string n){
     for(int i = 0; i < vertices.size(); i++){
         if(vertices[i].name == n){
             found = true;
-            cout<<vertices[i].name<<" found."<<endl;
+            cout<<vertices[i].name<<" is already a city."<<endl;
         }
     }
     if(found == false){
@@ -151,7 +151,13 @@ void Graph::printVertices(){
 void Graph::assignDistricts(){
     queue<vertex*> q;
     vertex *v;
-    int currentdistrict=1;
+    currentdistrict=1;
+    cout << "setting all to false" << endl;
+    cout << vertices.size() << endl;
+    for(int z=0; z,z<vertices.size(); ++z){
+        vertices[z].visited=false;
+    }
+    cout << "done" << endl;
         for(int i=0; i<vertices.size(); ++i){
             if(vertices[i].visited==false){
                 q.push(&vertices[i]);

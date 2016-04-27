@@ -44,10 +44,12 @@ class Graph
         void buildgraph(char *filenamein);
         void printnearestcities(std::string nearestcity);
         std::string movecity(std::string currentcity, std::string startingCity);
+        void addCity(std::string newcityname);
 
     protected:
     private:
         std::vector<vertex> vertices;
+        int currentdistrict=1;
 
 };
 

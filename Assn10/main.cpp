@@ -22,6 +22,7 @@ int main()
     string nearestcitymain;
     int userage=0;
     string moveto;
+    int distancebetween12=0;
 
     Graph g;
     Resources r1;
@@ -56,6 +57,8 @@ int main()
 
         switch(choice){
             case 1:
+                choice=69;
+                while(choice!=9){
                 cout << "===============City Menu===============" << endl;
                 cout << "1. Print verticies of colonies" << endl;
                 cout << "2. Find districts" << endl;
@@ -112,21 +115,35 @@ int main()
                             }
                         break;
                     case 7:     //Add a city to the network
+                        cout << "Please enter the name of the city you would like to add to the network: ";
+                        getline(cin, cityname);
+                        g.addVertex(cityname);
                         break;
                     case 8:     //Update connections between two cities
+                        cout << "Please enter the name of the first city you would like to connect: ";
+                        getline(cin, cityname);
+                        cout << "Please enter the name of the second city you would like to connnect to " << cityname;
+                        getline(cin, startingCity);
+                        cout << "Please enter the distance between " << cityname << " and " << startingCity << ":";
+                        getline(cin, endingCity);
+                        stringstream(endingCity) << distancebetween12;
+                        g.addEdge(cityname, startingCity, distancebetween12);
                         break;
                     case 9:     //return to main (basically do nothing)
                         break;
                     default:
-                        cout << "invalid Input, returning to previous menu" << endl;
+                        cout << "invalid Input, Please try again" << endl;
                         break;
+                }
                 }
             break;
         case 2:
+            choice=69;
+            while(choice!=4){
             cout << "=============Resource Menu=============" << endl;
             cout << "1. Display resources" << endl;
             cout << "2. Update the resource register with food, water, or weapons" << endl;
-            cout << "3. " << endl; // something?
+            cout << "3. Add special Item (Not Food, Water, or Weapons)" << endl; // something?
             cout << "4. Return to previous menu" << endl;
 
             getline(cin, mychoice);
@@ -139,7 +156,8 @@ int main()
                 case 2:    //Add a new type of resource to the register
                     r1.addresource();
                     break;
-                case 3:    //
+                case 3:    //Add a special item to your inventory
+                    r1.addspecialItem();
                     break;
                 case 4:
                     break;
@@ -147,8 +165,10 @@ int main()
                     cout << "Invalid input, returning to previous menu" << endl;
                     break;
             }
+            }
             break;
         case 3:
+            while(choice!=4){
             cout << "=============Party Menu=============" << endl;
             cout << "1. Add member to party" << endl;
             cout << "2. Remove member from party" << endl;
@@ -180,6 +200,7 @@ int main()
                 default:
                     cout << "Invalid input, returning to previous menu" << endl;
                     break;
+            }
             }
             break;
         case 4:
