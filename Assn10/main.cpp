@@ -116,7 +116,7 @@ int main()
                     case 8:     //Update connections between two cities
                         cout << "Please enter the name of the first city you would like to connect: ";
                         getline(cin, cityname); //obtain user input
-                        cout << "Please enter the name of the second city you would like to connnect to " << cityname;
+                        cout << "Please enter the name of the second city you would like to connnect to " << cityname << " :";
                         getline(cin, startingCity); //obtain user input
                         cout << "Please enter the distance between " << cityname << " and " << startingCity << ":";
                         getline(cin, endingCity);   //obtain user input
