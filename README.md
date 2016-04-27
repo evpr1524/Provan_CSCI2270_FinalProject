@@ -6,8 +6,9 @@ This project is an all inclusive zombie apocalypse program which has many functi
 
 How to run:
 1. Clone the git repository to your local machine.
-2. Rebuild the program in your IDE of choice.
-3. Compile and Run
+2. Open the .cbp from inside the Assn10 folder!
+3. Rebuild the program in your IDE of choice.
+4. Compile and Run
 
 Dependencies:
 None besides basic #include <> and #include "" libraries
